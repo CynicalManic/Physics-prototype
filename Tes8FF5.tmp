@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://cs3455dcc1laf"]
+
+[ext_resource type="Script" path="res://Testing Scene.gd" id="1_3003j"]
+[ext_resource type="Texture2D" uid="uid://chjvclmhfndug" path="res://Resources/Grey Test.png" id="1_rjnpx"]
+[ext_resource type="Script" path="res://BtnPlayGame.gd" id="2_0l84k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_34hpy"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy6iv"]
+bg_color = Color(0.717647, 0.466667, 0.168627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mywki"]
+texture = ExtResource("1_rjnpx")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkgcn"]
+bg_color = Color(0.960784, 0.792157, 0.686275, 1)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CRect Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.580392, 0.701961, 0.756863, 1)
+
+[node name="CtrTitle" type="Control" parent="CRect Background"]
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.05
+anchor_right = 0.8
+anchor_bottom = 0.3
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LblTitle" type="Label" parent="CRect Background/CtrTitle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "This is my game!"
+label_settings = SubResource("LabelSettings_34hpy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CtrButtons" type="Control" parent="CRect Background"]
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.3
+anchor_right = 0.8
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxMenuButtons" type="VBoxContainer" parent="CRect Background/CtrButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxPlay" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="BtnPlayGame" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxPlay"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_sy6iv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mywki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xkgcn")
+text = "Play Game"
+script = ExtResource("2_0l84k")
+
+[node name="HBoxCredits" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="BtnCredits" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxCredits"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_sy6iv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mywki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xkgcn")
+text = "Credits"
+
+[node name="HBoxExit" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="BtnExit" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxExit"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_sy6iv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mywki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xkgcn")
+text = "Exit Game"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3003j")
+
+[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxPlay/BtnPlayGame" to="CanvasLayer/Control" method="_on_btn_play_game_pressed"]

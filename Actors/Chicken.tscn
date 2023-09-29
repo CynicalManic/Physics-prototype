@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf2uomdbpd4ah"]
+
+[ext_resource type="Texture2D" uid="uid://ceynshg2j0rqh" path="res://Resources/Animated Sprites/cute chicken idle.png" id="1_tmkqt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4556"]
+radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv1wc"]
+atlas = ExtResource("1_tmkqt")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr4rq"]
+atlas = ExtResource("1_tmkqt")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3iqx"]
+atlas = ExtResource("1_tmkqt")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axro5"]
+atlas = ExtResource("1_tmkqt")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe04e"]
+atlas = ExtResource("1_tmkqt")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky7uo"]
+atlas = ExtResource("1_tmkqt")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68qc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv1wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr4rq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3iqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axro5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe04e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky7uo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_h4556")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_68qc4")
+autoplay = "default"
+frame_progress = 0.34887
