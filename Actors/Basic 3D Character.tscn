@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4xxmrcioma14"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xd1er"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw18m"]
+albedo_color = Color(0.262745, 0.756863, 0.92549, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_er6ty"]
+material = SubResource("StandardMaterial3D_yw18m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_636ll"]
+albedo_color = Color(1, 0.584314, 0.145098, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_wpqm8"]
+material = SubResource("StandardMaterial3D_636ll")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwabo"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6k7bi"]
+material = SubResource("StandardMaterial3D_fwabo")
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xd1er")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.995531, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_er6ty")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, -1.44746e-08, 0.067577, 0, -0.331141, -2.95388e-09, 0, 0.364984, -0.600813)
+mesh = SubResource("PrismMesh_wpqm8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.163645, 0, 0, 0, 0.174843, 0, 0, 0, 0.163645, 0.157872, 0.603906, -0.441019)
+mesh = SubResource("SphereMesh_6k7bi")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.163645, 0, 0, 0, 0.174843, 0, 0, 0, 0.163645, -0.168775, 0.603906, -0.441019)
+mesh = SubResource("SphereMesh_6k7bi")

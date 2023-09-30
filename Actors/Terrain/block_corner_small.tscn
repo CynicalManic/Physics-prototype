@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccephyy2gbtb2"]
+
+[ext_resource type="PackedScene" uid="uid://dukghgbp3gjai" path="res://Resources/Kenney Platformer Assets/blockCornerSmall.glb" id="1_8pfol"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rq52o"]
+points = PackedVector3Array(-0.416772, 0.769577, -0.633028, -0.083404, 0.769577, -0.633028, -0.500052, 0, -0.500052, -0.500052, 0.841425, -0.591636, -0.000123918, 0.841425, -0.591636, 0.0646908, 0.841425, -0.564743, 0.156522, 0.769577, -0.531654, -0.000123918, 0, -0.500052, -0.633028, 0.769577, -0.416772, -0.591636, 0.841425, -0.500052, -0.500052, 0, 0.499929, -0.500052, 1, -0.500052, -0.000123918, 1, -0.500052, 0.499929, 0, -0.000123918, 0.499929, 1, -0.000123918, 0.53153, 0.769577, -0.156646, -0.633028, 0.769577, 0.416648, -0.591636, 0.841425, 0.499929, -0.416772, 0.769577, 0.632904, -0.500052, 0.841425, 0.591512, 0.499929, 0, 0.499929, -0.500052, 1, 0.499929, 0.632904, 0.769577, 0.0832801, 0.499929, 1, 0.499929, 0.591512, 0.841425, -0.000123918, 0.564619, 0.841425, -0.0648147, 0.416648, 0.769577, 0.632904, 0.499929, 0.841425, 0.591512, 0.632904, 0.769577, 0.416648, 0.591512, 0.841425, 0.499929)
+
+[node name="blockCornerSmall" instance=ExtResource("1_8pfol")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_rq52o")
