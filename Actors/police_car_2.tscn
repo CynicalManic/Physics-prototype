@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://buvk4x2oyioae"]
 
-[ext_resource type="PackedScene" uid="uid://dtgycdyllsidf" path="res://Resources/3D Blender Assets/Unfinished/Police_Car_2.glb" id="1_27g8b"]
+[ext_resource type="PackedScene" uid="uid://dtgycdyllsidf" path="res://Resources/3D Blender Assets/Unfinished/Other/Police_Car_2.glb" id="1_wul4u"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gjm5f"]
 points = PackedVector3Array(-3.80833, 2.98689, 2.80261, 3.76267, 2.98635, 3.54185, 2.7526, 0.83319, -4.03479, -2.7526, 0.865086, 7.33298, -1.32589, 5.4098, 0.479177, -2.7526, 0.865086, -3.94198, 2.54389, 0.147245, 5.05677, 1.36153, 3.35564, 7.41963, 2.65474, 3.17127, -4.02863, -2.69966, 3.17181, -4.02863, -2.69966, 3.17181, 7.41963, -2.59501, 0.140852, -2.20745, 1.32584, 5.50105, 0.43661, 2.7526, 0.83319, 7.42579, -2.58882, 0.147257, 5.05675, 2.55007, 0.140844, -2.20746, 2.65474, 3.17127, 7.41963, -3.80833, 3.5411, 2.80261, 3.76267, 3.5411, 2.80261, -1.58329, 4.93851, 2.35235, -1.40719, 3.35564, 7.41963, -3.80833, 2.98689, 3.54185, -1.65533, 5.03711, -0.367094, 3.76267, 2.98635, 2.80261, 1.78172, 4.86495, -0.36659)
 
-[node name="Police_Car_2" instance=ExtResource("1_27g8b")]
+[node name="Police_Car_2" instance=ExtResource("1_wul4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9289, 0, -16.3387)
 
 [node name="Cylinder_002" parent="." index="0"]

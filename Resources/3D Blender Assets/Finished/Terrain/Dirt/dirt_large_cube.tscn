@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg0rlcxoem0ex"]
+
+[ext_resource type="PackedScene" uid="uid://c17u0rcwx1i15" path="res://Resources/3D Blender Assets/Unimported/Dirt_Large_Cube.glb" id="1_shi0f"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l11s5"]
+points = PackedVector3Array(-2, -1, -2, -2, 1, -2, 2, -1, -2, -2, -1, 2, -2, 1, 2, 2, 1, -2, 2, -1, 2, 2, 1, 2)
+
+[node name="Dirt_Large_Cube" instance=ExtResource("1_shi0f")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_l11s5")

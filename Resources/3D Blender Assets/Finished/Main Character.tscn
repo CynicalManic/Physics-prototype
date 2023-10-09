@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://dps57878oq07g"]
 
-[ext_resource type="Texture2D" uid="uid://dyaxdrwyhn20r" path="res://Resources/3D Blender Assets/Unfinished/New Character_ImphenziaPixel-BaseColor.png" id="1_clvsn"]
-[ext_resource type="Texture2D" uid="uid://f18cvv2athwl" path="res://Resources/3D Blender Assets/Unfinished/New Character_ImphenziaPixel-Emission.png" id="2_vogio"]
-[ext_resource type="Texture2D" uid="uid://b2cm21gvpc21b" path="res://Resources/3D Blender Assets/Unfinished/New Character_ImphenziaPixel-Attributes.png" id="3_7rn0y"]
+[ext_resource type="Texture2D" uid="uid://dyaxdrwyhn20r" path="res://Resources/3D Blender Assets/Unfinished/Other/New Character_ImphenziaPixel-BaseColor.png" id="1_clvsn"]
+[ext_resource type="Texture2D" uid="uid://f18cvv2athwl" path="res://Resources/3D Blender Assets/Unfinished/Other/New Character_ImphenziaPixel-Emission.png" id="2_vogio"]
+[ext_resource type="Texture2D" uid="uid://b2cm21gvpc21b" path="res://Resources/3D Blender Assets/Unfinished/Other/New Character_ImphenziaPixel-Attributes.png" id="3_7rn0y"]
 [ext_resource type="Animation" uid="uid://dd2biclo04xgp" path="res://Animations/_TPose.res" id="4_e6hjp"]
 [ext_resource type="Animation" uid="uid://bxcty5dc0y8aj" path="res://Animations/F Walking.res" id="5_rs4hj"]
 [ext_resource type="Animation" uid="uid://ccubkacq7cwye" path="res://Animations/Idle.res" id="6_d3a0k"]

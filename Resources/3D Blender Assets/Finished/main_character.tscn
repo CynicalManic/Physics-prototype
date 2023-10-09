@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://camkvqqgjjadb"]
+
+[ext_resource type="PackedScene" uid="uid://tldx0smgawu7" path="res://Resources/3D Blender Assets/Unimported/Main_Character.glb" id="1_u15pg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2yxcc"]
+height = 1.86398
+
+[node name="Main_Character" instance=ExtResource("1_u15pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+
+[node name="Skeleton3D" parent="Main Character" index="0"]
+bones/0/position = Vector3(-5.20082e-16, -0.0136864, -0.0166427)
+bones/2/rotation = Quaternion(0.0425501, 0.00241668, 0.00339728, 0.999086)
+bones/3/rotation = Quaternion(0.0475898, 0.0114762, 0.00718507, 0.998775)
+bones/4/rotation = Quaternion(-0.0281205, 0.00862147, -0.71588, 0.697603)
+bones/5/rotation = Quaternion(-0.0541411, 0.110748, -0.575488, 0.808466)
+bones/6/rotation = Quaternion(0.290314, 0.0150895, -0.156208, 0.943975)
+bones/7/rotation = Quaternion(-0.0566302, -0.00158694, -0.206691, 0.976765)
+bones/9/rotation = Quaternion(-0.0851884, -0.0730725, 0.616852, 0.779036)
+bones/10/rotation = Quaternion(0.254901, -0.00635353, 0.0187726, 0.966764)
+bones/11/rotation = Quaternion(-0.0550965, -0.0313194, 0.214792, 0.974602)
+bones/12/rotation = Quaternion(-0.0251076, -0.139476, -0.98687, 0.0774781)
+bones/12/scale = Vector3(0.999991, 1, 0.999984)
+bones/13/rotation = Quaternion(-0.175858, 0.0259707, -0.0665954, 0.981817)
+bones/14/rotation = Quaternion(0.744195, -0.00453419, -0.00905468, 0.667886)
+bones/15/rotation = Quaternion(-0.0220177, 0.144963, 0.988843, 0.0262854)
+bones/15/scale = Vector3(0.999991, 1, 0.999984)
+bones/16/rotation = Quaternion(-0.185536, -0.0132192, -0.0301164, 0.982087)
+bones/17/rotation = Quaternion(0.74653, 0.0260487, 0.0499264, 0.662965)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786017, 0)
+shape = SubResource("CapsuleShape3D_2yxcc")

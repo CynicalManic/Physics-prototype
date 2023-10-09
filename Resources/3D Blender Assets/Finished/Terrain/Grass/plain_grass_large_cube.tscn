@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://djssaiu5pjsc4"]
+
+[ext_resource type="PackedScene" uid="uid://d02jp4l1j5y21" path="res://Resources/3D Blender Assets/Unimported/Plain_Grass_Large_Cube.glb" id="1_ob6se"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i25k2"]
+points = PackedVector3Array(-2, -1, -2, -2, -1, 2, -2, 1, -2, 2, -1, -2, -2, 1, 2, 2, -1, 2, 2, 1, -2, 2, 1, 2)
+
+[node name="Plain_Grass_Large_Cube" instance=ExtResource("1_ob6se")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_i25k2")

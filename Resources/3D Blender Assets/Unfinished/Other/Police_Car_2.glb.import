@@ -1,0 +1,39 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dtgycdyllsidf"
+path="res://.godot/imported/Police_Car_2.glb-5f11b962661a9e2bc56353017d410c4a.scn"
+
+[deps]
+
+source_file="res://Resources/3D Blender Assets/Unfinished/Other/Police_Car_2.glb"
+dest_files=["res://.godot/imported/Police_Car_2.glb-5f11b962661a9e2bc56353017d410c4a.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"ImphenziaPixPal": {
+"use_external/enabled": true,
+"use_external/path": "res://Imphenzia/PixPal/Materials/ImphenziaPixPal.tres"
+}
+}
+}
+gltf/embedded_image_handling=3

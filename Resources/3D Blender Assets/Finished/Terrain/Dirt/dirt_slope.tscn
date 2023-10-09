@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk16k7q3a50i5"]
+
+[ext_resource type="PackedScene" uid="uid://co37lsy81vqul" path="res://Resources/3D Blender Assets/Unimported/Dirt_Slope.glb" id="1_qs6ow"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_56ms2"]
+points = PackedVector3Array(1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
+
+[node name="Dirt_Slope" instance=ExtResource("1_qs6ow")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_56ms2")
