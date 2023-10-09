@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+var Animation_State = "Idle"
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -8,10 +9,32 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var mouse_sensitivity = 0.002
-var push_force = 100.0
+var push_force = 25.0
 @onready var child = self.get_node("CameraHub")
 
 func _ready():
+	$AnimationPlayer.play("Idle")
+	
+	pass
+	
+func AnimationHandler(input_dir):
+	
+	if input_dir == Vector2(0,0) and is_on_floor():
+		Animation_State = "Idle"
+	elif input_dir != Vector2(0,0) and is_on_floor():
+		Animation_State = "Walking"
+	
+	if (Animation_State == "Idle" or Animation_State == "Walking") and not is_on_floor():
+		Animation_State = "Falling"	
+	
+	if Animation_State == "Idle":
+		$AnimationPlayer.play("Idle")
+	if Animation_State == "Walking":
+		$AnimationPlayer.play("F Walking")
+	if Animation_State == "Jumping":
+		$AnimationPlayer.play("Jumping")
+	if Animation_State == "Falling":
+		$AnimationPlayer.play("Falling")
 	pass
 
 func _physics_process(delta):
@@ -21,6 +44,7 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		Animation_State = "Jumping"
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -33,13 +57,17 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	
+	
+	
 	move_and_slide()
 	
 	for col_idx in get_slide_collision_count():
 		var col := get_slide_collision(col_idx)
 		if col.get_collider() is RigidBody3D:
 			col.get_collider().apply_impulse(-col.get_normal() * push_force * delta, col.get_position() - col.get_collider().global_position)
+	
+	AnimationHandler(input_dir)
 				
 				
 func _unhandled_input(event):
@@ -50,3 +78,10 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		
 		
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if Animation_State == "Jumping":
+		$AnimationPlayer.play("Falling")
+		Animation_State = "Falling"
+	pass # Replace with function body.

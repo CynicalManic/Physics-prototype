@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8p7iq24lw5ik"]
+
+[ext_resource type="PackedScene" uid="uid://crfo7l7qx6rj2" path="res://Resources/3D Blender Assets/Unfinished/Police_Car.glb" id="1_l7f25"]
+[ext_resource type="Shader" path="res://Resources/3D Blender Assets/Finished/Testing.gdshader" id="2_lq50v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6347s"]
+render_priority = 0
+shader = ExtResource("2_lq50v")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y1d0g"]
+points = PackedVector3Array(-3.80833, 2.98689, 2.80261, 3.76267, 2.98635, 3.54185, 2.7526, 0.83319, -4.03479, -2.7526, 0.865086, 7.33298, -1.32589, 5.4098, 0.479177, -2.7526, 0.865086, -3.94198, 2.54389, 0.147245, 5.05677, 1.36153, 3.35564, 7.41963, 2.65474, 3.17127, -4.02863, -2.69966, 3.17181, -4.02863, -2.69966, 3.17181, 7.41963, -2.59501, 0.140852, -2.20745, 1.32584, 5.50105, 0.43661, 2.7526, 0.83319, 7.42579, -2.58882, 0.147257, 5.05675, 2.55007, 0.140844, -2.20746, 2.65474, 3.17127, 7.41963, -3.80833, 3.5411, 2.80261, 3.76267, 3.5411, 2.80261, -1.58391, 4.93935, 2.35261, -1.40719, 3.35564, 7.41963, -3.80833, 2.98689, 3.54185, -1.65533, 5.03711, -0.367094, 3.76267, 2.98635, 2.80261, 1.78172, 4.86495, -0.36659)
+
+[node name="Police_Car" instance=ExtResource("1_l7f25")]
+
+[node name="Cylinder_001" parent="." index="0"]
+transform = Transform3D(-1, 0, -0.000718307, 0, 1, 0, 0.000718307, 0, -1, -0.0421939, -0.0686564, 1.33474)
+material_overlay = SubResource("ShaderMaterial_6347s")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(-1, 0, -0.000718307, 0, 1, 0, 0.000718307, 0, -1, -0.0421939, -0.0686564, 1.33474)
+shape = SubResource("ConvexPolygonShape3D_y1d0g")

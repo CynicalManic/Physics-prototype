@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dptyxni4mm2il"]
+
+[ext_resource type="PackedScene" uid="uid://diseuafcvgnk7" path="res://Resources/3D Blender Assets/Unfinished/New Character.glb" id="1_5blhu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_exw3x"]
+height = 1.86507
+
+[node name="New Character" instance=ExtResource("1_5blhu")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/12/rotation = Quaternion(-0.0243478, -0.0788248, -0.994902, 0.057996)
+bones/12/scale = Vector3(0.999991, 0.999999, 0.999984)
+bones/13/rotation = Quaternion(-0.0643114, 0.00101203, -0.030177, 0.997473)
+bones/14/rotation = Quaternion(0.707846, -0.0018199, -0.0360159, 0.705445)
+bones/15/rotation = Quaternion(-0.0243479, 0.0788284, 0.994902, 0.0579976)
+bones/15/scale = Vector3(0.999991, 1, 0.999984)
+bones/17/rotation = Quaternion(0.707848, 0.00182073, 0.0360175, 0.705443)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.934082, 0)
+shape = SubResource("CapsuleShape3D_exw3x")

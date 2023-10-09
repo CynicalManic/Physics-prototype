@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5bi3n372cvur"]
+[gd_scene load_steps=21 format=3 uid="uid://c5bi3n372cvur"]
 
 [ext_resource type="PackedScene" uid="uid://c4xxmrcioma14" path="res://Actors/Basic 3D Character.tscn" id="1_v34x5"]
 [ext_resource type="PackedScene" uid="uid://du5dndqtl7b3m" path="res://Actors/Terrain/block_slope.tscn" id="2_fpfec"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://ccephyy2gbtb2" path="res://Actors/Terrain/block_corner_small.tscn" id="9_fw6w0"]
 [ext_resource type="PackedScene" uid="uid://8qbrht32w5hf" path="res://Actors/Terrain/block_hexagon.tscn" id="10_1ihe3"]
 [ext_resource type="PackedScene" uid="uid://kg6nbtli203o" path="res://Actors/Crate.tscn" id="13_ba1ll"]
+[ext_resource type="PackedScene" uid="uid://buvk4x2oyioae" path="res://Actors/police_car_2.tscn" id="15_40qib"]
+[ext_resource type="PackedScene" uid="uid://dps57878oq07g" path="res://Resources/3D Blender Assets/Finished/Main Character.tscn" id="15_wt0jt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nwikl"]
 
@@ -22,20 +24,37 @@ albedo_color = Color(0.0666667, 0.333333, 0.133333, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wwvi4"]
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
+[sub_resource type="Environment" id="Environment_nlugg"]
+background_mode = 1
+background_color = Color(0.596078, 0.729412, 1, 1)
+background_energy_multiplier = 1.23
+ambient_light_color = Color(0.894118, 0.894118, 0.894118, 1)
+reflected_light_source = 2
+ssr_fade_in = 0.172305
+ssr_fade_out = 35.5062
+ssr_depth_tolerance = 0.01
+ssao_enabled = true
+ssao_radius = 1.08
+ssao_intensity = 1.0
+ssao_power = 2.70375
+ssao_detail = 0.88
+ssao_horizon = 0.08
+ssao_sharpness = 1.0
+ssil_enabled = true
+ssil_radius = 4.95
+ssil_intensity = 2.0
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 0.25
+volumetric_fog_density = 0.0309
+volumetric_fog_length = 127.69
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1mx30"]
+
 [node name="Test Scene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Goon" parent="." instance=ExtResource("1_v34x5")]
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 4.97082, 2.69736, -1.89066)
-script = ExtResource("2_yih1b")
-
-[node name="CameraHub" type="Node3D" parent="Goon"]
-transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 0, 0)
-script = ExtResource("4_8n23u")
-
-[node name="Camera3D" type="Camera3D" parent="Goon/CameraHub"]
-transform = Transform3D(1, 0, 0, 0, 0.942641, 0.333807, 0, -0.333807, 0.942642, 0, 1.536, 1.838)
-fov = 80.5784
 
 [node name="Ground" type="Node3D" parent="."]
 
@@ -220,6 +239,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, 6.5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.60671, 0.514159, -0.606254, 0, 0.762657, 0.646803, 0.794923, -0.392422, 0.462712, 0, 8.6115, 0)
+shadow_enabled = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
@@ -245,3 +265,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 1)
 
 [node name="CrateObject6" parent="." instance=ExtResource("13_ba1ll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 1.5)
+
+[node name="Police_Car_2" parent="." instance=ExtResource("15_40qib")]
+transform = Transform3D(0.34641, 0, -0.2, 0, 0.4, 0, 0.2, 0, 0.34641, 0, -1.05, 2)
+
+[node name="New Character" parent="." instance=ExtResource("15_wt0jt")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -2.5, -1, 7)
+script = ExtResource("2_yih1b")
+
+[node name="CameraHub" type="Node3D" parent="New Character"]
+transform = Transform3D(9.99999, 0, 0, 0, 9.99999, 0, 0, 0, 9.99999, 0, 0, 0)
+script = ExtResource("4_8n23u")
+
+[node name="Camera3D" type="Camera3D" parent="New Character/CameraHub"]
+transform = Transform3D(0.1, 0, 0, 0, 0.0909962, 0.0414694, 0, -0.0414694, 0.0909962, 0.002, 0.215, 0.12)
+environment = SubResource("Environment_nlugg")
+attributes = SubResource("CameraAttributesPractical_1mx30")
+current = true
+fov = 80.5784
+
+[connection signal="animation_finished" from="New Character/AnimationPlayer" to="New Character" method="_on_animation_player_animation_finished"]
+
+[editable path="New Character"]
