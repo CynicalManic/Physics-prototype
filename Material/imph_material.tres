@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cjsl04gyt333o"]
+
+[ext_resource type="Shader" path="res://Material/imph_visual_shader.tres" id="1_85ahu"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_85ahu")

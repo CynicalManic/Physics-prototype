@@ -1,7 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d2sac0o84lqtd"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://rhnl5iu1mxuu"]
 
-[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://Imphenzia/PixPal/Resources/VS_ImphenziaPixPal.tres" id="1_ld0dc"]
+[ext_resource type="Shader" uid="uid://dkyisaelvb6vv" path="res://addons/pixpal_tools/Imphenzia/PixPal/Resources/VS_ImphenziaPixPal.tres" id="1_alydd"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_ld0dc")
+shader = ExtResource("1_alydd")

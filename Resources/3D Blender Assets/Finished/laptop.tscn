@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwdw2dwq3fx6"]
+
+[ext_resource type="PackedScene" uid="uid://gtlquytbfi3k" path="res://Resources/3D Blender Assets/Unimported/Laptop.glb" id="1_dgm3k"]
+
+[node name="Laptop" instance=ExtResource("1_dgm3k")]

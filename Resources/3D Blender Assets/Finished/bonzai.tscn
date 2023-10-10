@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://m2hh1clt3t57"]
+
+[ext_resource type="PackedScene" uid="uid://0wsmlt3x7obv" path="res://Resources/3D Blender Assets/Unimported/Bonzai.glb" id="1_4w8cv"]
+
+[node name="Bonzai" instance=ExtResource("1_4w8cv")]

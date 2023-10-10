@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bj6cyxq122byb" path="res://Resources/3D Blender Assets/Unimported/Dirt_Corner.glb" id="1_f660v"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dnp5h"]
-points = PackedVector3Array(-1, 1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rp0sp"]
+points = PackedVector3Array(-1, -0.5, -1, -1, 0.5, -1, 1, -0.5, -1, -1, -0.5, 1, 1, -0.5, 1)
 
 [node name="Dirt_Corner" instance=ExtResource("1_f660v")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-shape = SubResource("ConvexPolygonShape3D_dnp5h")
+shape = SubResource("ConvexPolygonShape3D_rp0sp")

@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://df781mfowrafj" path="res://Resources/3D Blender Assets/Unimported/Plain_Grass_Slope.glb" id="1_wb6i3"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8m8nd"]
-points = PackedVector3Array(1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_502wb"]
+points = PackedVector3Array(-1, -0.5, -1, -1, -0.5, 1, -1, 0.5, -1, 1, -0.5, -1, 1, -0.5, 1, 1, 0.5, -1)
 
 [node name="Plain_Grass_Slope" instance=ExtResource("1_wb6i3")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-shape = SubResource("ConvexPolygonShape3D_8m8nd")
+shape = SubResource("ConvexPolygonShape3D_502wb")

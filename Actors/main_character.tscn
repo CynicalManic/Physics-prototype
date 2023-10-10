@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfv84hg3fkw1s"]
+
+[ext_resource type="PackedScene" uid="uid://tldx0smgawu7" path="res://Resources/3D Blender Assets/Unimported/Main_Character.glb" id="1_qrneb"]
+[ext_resource type="Script" path="res://Scripts/Character Movement.gd" id="2_t3fkv"]
+[ext_resource type="Script" path="res://Actors/Camera SpringArm.gd" id="3_vea7v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fixbx"]
+height = 1.86141
+
+[node name="Main_Character2" instance=ExtResource("1_qrneb")]
+script = ExtResource("2_t3fkv")
+
+[node name="Main Character" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.85, 0)
+
+[node name="Skeleton3D" parent="Main Character" index="0"]
+bones/12/rotation = Quaternion(-0.0243478, -0.0788248, -0.994902, 0.057996)
+bones/12/scale = Vector3(0.999991, 0.999999, 0.999984)
+bones/13/rotation = Quaternion(-0.0643114, 0.00101203, -0.030177, 0.997473)
+bones/14/rotation = Quaternion(0.707846, -0.00181989, -0.0360159, 0.705445)
+bones/15/rotation = Quaternion(-0.024348, 0.078828, 0.994902, 0.0579974)
+bones/15/scale = Vector3(0.999991, 1, 0.999984)
+bones/17/rotation = Quaternion(0.707848, 0.00182087, 0.0360176, 0.705444)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935655, 0)
+shape = SubResource("CapsuleShape3D_fixbx")
+
+[node name="CameraHub" type="Node3D" parent="." index="3"]
+
+[node name="SpringArm" type="SpringArm3D" parent="CameraHub" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.985494, 0.169711, 0, -0.169711, 0.985494, 0, 1.5612, 0)
+spring_length = 2.0
+script = ExtResource("3_vea7v")
+
+[node name="Camera3D" type="Camera3D" parent="CameraHub/SpringArm" index="0"]
+current = true

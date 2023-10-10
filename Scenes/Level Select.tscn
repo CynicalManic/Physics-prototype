@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://bijsvt6wrjbkj"]
+
+[ext_resource type="Script" path="res://Level Select.gd" id="1_odpa8"]
+[ext_resource type="Texture2D" uid="uid://chjvclmhfndug" path="res://Resources/Grey Test.png" id="2_i6var"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_px0ec"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eueli"]
+bg_color = Color(0.717647, 0.466667, 0.168627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xpsp6"]
+texture = ExtResource("2_i6var")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y8sc"]
+bg_color = Color(0.960784, 0.792157, 0.686275, 1)
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odpa8")
+
+[node name="CRect Background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.580392, 0.701961, 0.756863, 1)
+
+[node name="CtrTitle" type="Control" parent="CRect Background"]
+z_index = 2
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.05
+anchor_right = 0.8
+anchor_bottom = 0.3
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LblTitle" type="Label" parent="CRect Background/CtrTitle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Level Select"
+label_settings = SubResource("LabelSettings_px0ec")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CtrButtons" type="Control" parent="CRect Background"]
+z_index = 2
+layout_mode = 1
+anchor_left = 0.3
+anchor_top = 0.3
+anchor_right = 0.7
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxMenuButtons" type="VBoxContainer" parent="CRect Background/CtrButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="HBoxPlay" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="BtnPlayGame" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxPlay"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_eueli")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xpsp6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4y8sc")
+text = "First Level"
+
+[node name="HBoxCredits" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="BtnCredits" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxCredits"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_eueli")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xpsp6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4y8sc")
+text = "3D All Assets"
+
+[node name="HBoxExit" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="BtnExit" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxExit"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_eueli")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xpsp6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4y8sc")
+text = "Back"
+
+[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxPlay/BtnPlayGame" to="." method="_on_btn_play_game_pressed"]
+[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxCredits/BtnCredits" to="." method="_on_btn_credits_pressed"]
+[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxExit/BtnExit" to="." method="_on_btn_exit_pressed"]

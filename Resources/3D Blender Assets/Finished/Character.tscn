@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp40meafkmpi1"]
+
+[ext_resource type="PackedScene" uid="uid://c2socoyh5hixd" path="res://Resources/3D Blender Assets/Unimported/Armature.glb" id="1_0ilfd"]
+[ext_resource type="Script" path="res://Scripts/Character Movement.gd" id="2_vyr0h"]
+[ext_resource type="Script" path="res://Actors/Camera SpringArm.gd" id="2_xxahi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ss64"]
+height = 1.86141
+
+[node name="Character" instance=ExtResource("1_0ilfd")]
+script = ExtResource("2_vyr0h")
+
+[node name="Armature2" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.900535, 0)
+
+[node name="Skeleton3D" parent="Armature2" index="0"]
+bones/0/position = Vector3(-1.16687e-10, -0.0780603, -0.0166427)
+bones/5/rotation = Quaternion(0.223624, -0.206217, -0.613975, 0.728355)
+bones/6/rotation = Quaternion(0.438056, -0.128199, 0.0543586, 0.888097)
+bones/7/rotation = Quaternion(0.0770071, 0.0129716, -0.203128, 0.976033)
+bones/9/rotation = Quaternion(-0.137073, -0.312333, 0.577957, 0.741367)
+bones/10/rotation = Quaternion(0.584524, 0.127426, 0.00417595, 0.801297)
+bones/11/rotation = Quaternion(0.105207, 0.000865066, 0.186945, 0.97672)
+bones/12/rotation = Quaternion(0.033868, 0.114039, 0.991295, -0.0564146)
+bones/12/scale = Vector3(0.999991, 0.999999, 0.999984)
+bones/13/rotation = Quaternion(-0.431571, -0.00606807, 0.0143118, 0.901945)
+bones/14/rotation = Quaternion(0.808568, 0.0224567, -0.0767035, 0.58295)
+bones/15/rotation = Quaternion(-0.0376105, 0.380693, 0.92283, 0.0452037)
+bones/15/scale = Vector3(0.999991, 1, 0.999983)
+bones/16/rotation = Quaternion(-0.342555, -0.0106774, 0.00589339, 0.939419)
+bones/17/rotation = Quaternion(0.775659, -0.000514291, 0.0479029, 0.629332)
+bones/18/position = Vector3(0.175026, -0.753823, -0.300094)
+bones/18/rotation = Quaternion(-0.562073, -2.00081e-08, 2.00081e-08, 0.827088)
+bones/20/position = Vector3(-0.175026, -0.815947, 0.23117)
+bones/20/rotation = Quaternion(-0.791618, 1.36351e-08, -1.36351e-08, 0.611016)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935655, 0)
+shape = SubResource("CapsuleShape3D_3ss64")
+
+[node name="CameraHub" type="Node3D" parent="." index="3"]
+
+[node name="SpringArm" type="SpringArm3D" parent="CameraHub" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.985494, 0.169711, 0, -0.169711, 0.985494, 0, 1.5612, 0)
+spring_length = 2.0
+script = ExtResource("2_xxahi")
+
+[node name="Camera3D" type="Camera3D" parent="CameraHub/SpringArm" index="0"]
+current = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

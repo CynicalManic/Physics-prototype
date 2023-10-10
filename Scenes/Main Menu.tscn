@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cs3455dcc1laf"]
+[gd_scene load_steps=12 format=3 uid="uid://cs3455dcc1laf"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuManager.gd" id="1_mjoci"]
 [ext_resource type="Texture2D" uid="uid://chjvclmhfndug" path="res://Resources/Grey Test.png" id="2_2jgye"]
 [ext_resource type="PackedScene" uid="uid://bf2uomdbpd4ah" path="res://Actors/Chicken.tscn" id="3_ewv08"]
 [ext_resource type="Script" path="res://Scripts/BouncyCube.gd" id="4_m5p84"]
-[ext_resource type="Script" path="res://Scripts/CollisionCube.gd" id="5_6f7s8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_34hpy"]
 font_size = 40
@@ -32,9 +31,6 @@ size = Vector2(21, 1075)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se8s3"]
 size = Vector2(1927, 25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0isxd"]
-size = Vector2(100, 100)
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -190,56 +186,6 @@ position = Vector2(939, 90)
 scale = Vector2(5, 5)
 script = ExtResource("4_m5p84")
 starting_velocity = Vector2(1000, -400)
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(300, 120)
-script = ExtResource("5_6f7s8")
-move_speed = 300.0
-move_dir = Vector2(0, 800)
-
-[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_0isxd")
-
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
-position = Vector2(1614, 100)
-script = ExtResource("5_6f7s8")
-move_speed = 300.0
-move_dir = Vector2(0, 800)
-
-[node name="ColorRect" type="ColorRect" parent="CharacterBody2D2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-shape = SubResource("RectangleShape2D_0isxd")
 
 [connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxPlay/BtnPlayGame" to="." method="_on_btn_play_game_pressed"]
 [connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxCredits/BtnCredits" to="." method="_on_btn_credits_pressed"]

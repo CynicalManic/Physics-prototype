@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://d16owsq4ja6y4" path="res://Resources/3D Blender Assets/Unimported/Dirt_Large_Slope.glb" id="1_gui0t"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pbre3"]
-points = PackedVector3Array(-2, -1, -2, -2, 1, -2, 2, -1, -2, -2, -1, 2, 2, 1, -2, 2, -1, 2)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kikgy"]
+points = PackedVector3Array(-2, -0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, -0.5, 2, 2, 0.5, -2, 2, -0.5, 2)
 
 [node name="Dirt_Large_Slope" instance=ExtResource("1_gui0t")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-shape = SubResource("ConvexPolygonShape3D_pbre3")
+shape = SubResource("ConvexPolygonShape3D_kikgy")

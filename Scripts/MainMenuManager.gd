@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_btn_play_game_pressed():
-	get_tree().change_scene_to_file("res://Scenes/3D Test Scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Level Select.tscn")
 	pass # Replace with function body.
 
 

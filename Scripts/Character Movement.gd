@@ -10,19 +10,23 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var mouse_sensitivity = 0.002
 var push_force = 25.0
-@onready var child = self.get_node("CameraHub")
+@onready var CameraHub = self.get_node("CameraHub")
+@onready var SpringArm = CameraHub.get_node("SpringArm")
 
 func _ready():
 	$AnimationPlayer.play("Idle")
-	
+	SpringArm = CameraHub.get_node("SpringArm")
 	pass
 	
 func AnimationHandler(input_dir):
 	
 	if input_dir == Vector2(0,0) and is_on_floor():
 		Animation_State = "Idle"
+	elif input_dir != Vector2(0,0) and is_on_floor() and Input.is_action_pressed("Sprint"):
+		Animation_State = "Sprinting"
 	elif input_dir != Vector2(0,0) and is_on_floor():
 		Animation_State = "Walking"
+	
 	
 	if (Animation_State == "Idle" or Animation_State == "Walking") and not is_on_floor():
 		Animation_State = "Falling"	
@@ -30,11 +34,13 @@ func AnimationHandler(input_dir):
 	if Animation_State == "Idle":
 		$AnimationPlayer.play("Idle")
 	if Animation_State == "Walking":
-		$AnimationPlayer.play("F Walking")
+		$AnimationPlayer.play("Walking")
 	if Animation_State == "Jumping":
 		$AnimationPlayer.play("Jumping")
 	if Animation_State == "Falling":
 		$AnimationPlayer.play("Falling")
+	if Animation_State == "Sprinting":
+		$AnimationPlayer.play("Sprinting")
 	pass
 
 func _physics_process(delta):
@@ -72,9 +78,9 @@ func _physics_process(delta):
 				
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.is_action_pressed("right_click"):
-		rotation.y = rotation.y + child.rotation.y
-		if child.has_method("reset_camera_rotation"):
-			child.reset_camera_rotation()
+		rotation.y = rotation.y + SpringArm.rotation.y
+		if SpringArm.has_method("reset_camera_rotation"):
+			SpringArm.reset_camera_rotation()
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		
 		
