@@ -12,45 +12,57 @@ var mouse_sensitivity = 0.002
 var push_force = 25.0
 @onready var CameraHub = self.get_node("CameraHub")
 @onready var SpringArm = CameraHub.get_node("SpringArm")
+@onready var animation_tree : AnimationTree = $AnimationTree
 
 func _ready():
-	$AnimationPlayer.play("Idle")
+	animation_tree.active = true
 	SpringArm = CameraHub.get_node("SpringArm")
 	pass
 	
+
+	
 func AnimationHandler(input_dir):
+	# Check if moving
+	if(velocity == Vector3.ZERO):
+		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/walking"] = false
+		animation_tree["parameters/conditions/sprinting"] = false
+	else:
+		animation_tree["parameters/conditions/idle"] = false
+		if (Input.is_action_pressed("Sprint")):
+			animation_tree["parameters/conditions/sprinting"] = true
+			animation_tree["parameters/conditions/walking"] = false
+		else:			
+			animation_tree["parameters/conditions/walking"] = true
+			animation_tree["parameters/conditions/sprinting"] = false
+		
 	
-	if input_dir == Vector2(0,0) and is_on_floor():
-		Animation_State = "Idle"
-	elif input_dir != Vector2(0,0) and is_on_floor() and Input.is_action_pressed("Sprint"):
-		Animation_State = "Sprinting"
-	elif input_dir != Vector2(0,0) and is_on_floor():
-		Animation_State = "Walking"
+		
+	# Check if on floor
+	if (is_on_floor()):
+		animation_tree["parameters/conditions/is_on_floor"] = true
+		animation_tree["parameters/conditions/falling"] = false
+	else:
+		animation_tree["parameters/conditions/is_on_floor"] = false
+		if(Input.is_action_pressed("jump")):
+			animation_tree["parameters/conditions/jumping"] = true
+			animation_tree["parameters/conditions/falling"] = false
+		else:
+			animation_tree["parameters/conditions/jumping"] = false
+			animation_tree["parameters/conditions/falling"] = true
 	
-	
-	if (Animation_State == "Idle" or Animation_State == "Walking") and not is_on_floor():
-		Animation_State = "Falling"	
-	
-	if Animation_State == "Idle":
-		$AnimationPlayer.play("Idle")
-	if Animation_State == "Walking":
-		$AnimationPlayer.play("Walking")
-	if Animation_State == "Jumping":
-		$AnimationPlayer.play("Jumping")
-	if Animation_State == "Falling":
-		$AnimationPlayer.play("Falling")
-	if Animation_State == "Sprinting":
-		$AnimationPlayer.play("Sprinting")
 	pass
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
+
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		Animation_State = "Jumping"
+		
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.

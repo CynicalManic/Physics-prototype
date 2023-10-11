@@ -1,0 +1,152 @@
+[gd_scene load_steps=26 format=3 uid="uid://c7f5cnke23s7r"]
+
+[ext_resource type="PackedScene" uid="uid://cxuqupig64gpo" path="res://Resources/3D Blender Assets/Unimported/Armature - Copy.glb" id="1_gkox7"]
+[ext_resource type="Script" path="res://Actors/Camera SpringArm.gd" id="2_50777"]
+[ext_resource type="Script" path="res://Scripts/Character Movement.gd" id="2_feev3"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_md37o"]
+animation = &"Falling "
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n56mf"]
+animation = &"Idle "
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_27k43"]
+animation = &"Jumping"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m8fuy"]
+animation = &"Sprinting "
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gqxdd"]
+animation = &"Walking "
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_chhhi"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2vald"]
+switch_mode = 1
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ty55"]
+switch_mode = 1
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wjpj1"]
+advance_mode = 2
+advance_condition = &"jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v6mb5"]
+advance_mode = 2
+advance_condition = &"falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mgfkm"]
+advance_mode = 2
+advance_condition = &"jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s6n83"]
+advance_mode = 2
+advance_condition = &"falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gp5j8"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4y655"]
+advance_mode = 2
+advance_condition = &"is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kelqo"]
+advance_mode = 2
+advance_condition = &"is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7yhq5"]
+advance_mode = 2
+advance_condition = &"sprinting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tia8j"]
+advance_mode = 2
+advance_condition = &"is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2364y"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tfp66"]
+advance_mode = 2
+advance_condition = &"sprinting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t84u8"]
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mntcc"]
+states/End/position = Vector2(1140, 96)
+states/Falling/node = SubResource("AnimationNodeAnimation_md37o")
+states/Falling/position = Vector2(736.617, 290)
+states/Idle/node = SubResource("AnimationNodeAnimation_n56mf")
+states/Idle/position = Vector2(195.333, 255.234)
+states/Jumping/node = SubResource("AnimationNodeAnimation_27k43")
+states/Jumping/position = Vector2(718.815, 129.333)
+states/Sprinting/node = SubResource("AnimationNodeAnimation_m8fuy")
+states/Sprinting/position = Vector2(422.667, 366.667)
+states/Start/position = Vector2(82.6666, 147.805)
+states/Walking/node = SubResource("AnimationNodeAnimation_gqxdd")
+states/Walking/position = Vector2(417.333, 80)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_chhhi"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_2vald"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_4ty55"), "Idle", "Jumping", SubResource("AnimationNodeStateMachineTransition_wjpj1"), "Idle", "Falling", SubResource("AnimationNodeStateMachineTransition_v6mb5"), "Walking", "Jumping", SubResource("AnimationNodeStateMachineTransition_mgfkm"), "Walking", "Falling", SubResource("AnimationNodeStateMachineTransition_s6n83"), "Jumping", "Falling", SubResource("AnimationNodeStateMachineTransition_gp5j8"), "Falling", "Idle", SubResource("AnimationNodeStateMachineTransition_4y655"), "Falling", "Walking", SubResource("AnimationNodeStateMachineTransition_kelqo"), "Idle", "Sprinting", SubResource("AnimationNodeStateMachineTransition_7yhq5"), "Jumping", "Idle", SubResource("AnimationNodeStateMachineTransition_tia8j"), "Sprinting", "Idle", SubResource("AnimationNodeStateMachineTransition_2364y"), "Walking", "Sprinting", SubResource("AnimationNodeStateMachineTransition_tfp66"), "Sprinting", "Walking", SubResource("AnimationNodeStateMachineTransition_t84u8")]
+graph_offset = Vector2(-88, 6)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_48y1t"]
+height = 1.86141
+
+[node name="Armature - Copy" instance=ExtResource("1_gkox7")]
+script = ExtResource("2_feev3")
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.883508, 0)
+
+[node name="GeneralSkeleton" parent="Armature" index="0"]
+bones/0/position = Vector3(-5.20082e-16, -0.0136864, -0.0166427)
+bones/1/rotation = Quaternion(-1.05879e-22, 0, 0, 1)
+bones/2/rotation = Quaternion(-0.0317569, 0.00257059, 0.00328236, 0.999487)
+bones/3/rotation = Quaternion(0.0387324, 0.0112017, 0.00760594, 0.999158)
+bones/5/rotation = Quaternion(0.164184, 0.85178, -0.468041, 0.168678)
+bones/6/rotation = Quaternion(0.282269, -0.714728, -0.000270143, 0.639912)
+bones/7/rotation = Quaternion(0.00659461, 0.721237, 0.00530138, 0.692637)
+bones/9/rotation = Quaternion(-0.154094, 0.815854, -0.519075, -0.202974)
+bones/10/rotation = Quaternion(0.20113, 0.746316, -0.0868123, 0.628508)
+bones/11/rotation = Quaternion(0.0223242, -0.740607, -0.0143827, 0.671414)
+bones/12/rotation = Quaternion(-0.0177469, -0.0629014, -0.997658, 0.020162)
+bones/12/scale = Vector3(0.999994, 1, 0.999989)
+bones/13/rotation = Quaternion(0.036873, 0.99268, -0.114162, -0.0139563)
+bones/14/rotation = Quaternion(0.0100728, 0.669946, -0.742184, -0.0152709)
+bones/15/rotation = Quaternion(-0.0168219, 0.069054, 0.997424, -0.0096728)
+bones/15/scale = Vector3(0.999994, 1, 0.999989)
+bones/16/rotation = Quaternion(0.0209737, 0.991966, -0.124751, 0.00114679)
+bones/17/rotation = Quaternion(0.0177411, 0.666078, -0.745657, 0.00458162)
+bones/17/scale = Vector3(1, 1, 0.999995)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeStateMachine_mntcc")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/conditions/falling = false
+parameters/conditions/idle = false
+parameters/conditions/is_on_floor = false
+parameters/conditions/jumping = false
+parameters/conditions/sprinting = false
+parameters/conditions/walking = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935655, 0)
+shape = SubResource("CapsuleShape3D_48y1t")
+
+[node name="CameraHub" type="Node3D" parent="." index="3"]
+
+[node name="SpringArm" type="SpringArm3D" parent="CameraHub" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.985494, 0.169711, 0, -0.169711, 0.985494, 0, 1.5612, 0)
+spring_length = 2.0
+script = ExtResource("2_50777")
+
+[node name="Camera3D" type="Camera3D" parent="CameraHub/SpringArm" index="0"]
+current = true

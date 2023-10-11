@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy4vhfncpwp7r"]
+
+[ext_resource type="PackedScene" uid="uid://cxuqupig64gpo" path="res://Resources/3D Blender Assets/Unimported/Armature - Copy.glb" id="1_o4a7p"]
+
+[node name="Custom Character" type="Node3D"]
+
+[node name="Armature - Copy" parent="." instance=ExtResource("1_o4a7p")]
+
+[editable path="Armature - Copy"]
