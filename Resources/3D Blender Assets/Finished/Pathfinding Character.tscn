@@ -1,8 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://cp40meafkmpi1"]
+[gd_scene load_steps=27 format=3 uid="uid://b62iylv4ervj3"]
 
-[ext_resource type="PackedScene" uid="uid://c2socoyh5hixd" path="res://Resources/3D Blender Assets/Unimported/Armature.glb" id="1_0ilfd"]
-[ext_resource type="Script" path="res://Scripts/Character Movement.gd" id="2_vyr0h"]
-[ext_resource type="Script" path="res://Actors/Camera SpringArm.gd" id="2_xxahi"]
+[ext_resource type="PackedScene" uid="uid://c2socoyh5hixd" path="res://Resources/3D Blender Assets/Unimported/Armature.glb" id="1_27lcl"]
+[ext_resource type="Script" path="res://Scripts/Pathfinding Character.gd" id="2_o3e30"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fvn3"]
+height = 1.86141
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_md37o"]
 animation = &"Falling "
@@ -103,54 +105,55 @@ xfade_time = 0.1
 advance_mode = 2
 advance_condition = &"falling"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mntcc"]
-states/End/position = Vector2(1140, 96)
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_syaqx"]
+states/End/position = Vector2(732.667, 94)
 states/Falling/node = SubResource("AnimationNodeAnimation_md37o")
-states/Falling/position = Vector2(736.617, 290)
+states/Falling/position = Vector2(502.305, 118)
 states/Idle/node = SubResource("AnimationNodeAnimation_n56mf")
-states/Idle/position = Vector2(27.333, 104.567)
+states/Idle/position = Vector2(27.333, 105.234)
 states/Jumping/node = SubResource("AnimationNodeAnimation_27k43")
-states/Jumping/position = Vector2(718.815, 129.333)
+states/Jumping/position = Vector2(502.148, 36.6663)
 states/Sprinting/node = SubResource("AnimationNodeAnimation_m8fuy")
-states/Sprinting/position = Vector2(422.667, 366.667)
+states/Sprinting/position = Vector2(289.334, 190.667)
 states/Start/position = Vector2(-215.333, 164.472)
 states/Walking/node = SubResource("AnimationNodeAnimation_gqxdd")
-states/Walking/position = Vector2(272.666, -48)
+states/Walking/position = Vector2(125.999, 3.33333)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_chhhi"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_4ty55"), "Idle", "Jumping", SubResource("AnimationNodeStateMachineTransition_wjpj1"), "Idle", "Falling", SubResource("AnimationNodeStateMachineTransition_v6mb5"), "Walking", "Jumping", SubResource("AnimationNodeStateMachineTransition_mgfkm"), "Walking", "Falling", SubResource("AnimationNodeStateMachineTransition_s6n83"), "Jumping", "Falling", SubResource("AnimationNodeStateMachineTransition_gp5j8"), "Falling", "Idle", SubResource("AnimationNodeStateMachineTransition_4y655"), "Falling", "Walking", SubResource("AnimationNodeStateMachineTransition_kelqo"), "Idle", "Sprinting", SubResource("AnimationNodeStateMachineTransition_7yhq5"), "Jumping", "Idle", SubResource("AnimationNodeStateMachineTransition_tia8j"), "Sprinting", "Idle", SubResource("AnimationNodeStateMachineTransition_2364y"), "Walking", "Sprinting", SubResource("AnimationNodeStateMachineTransition_tfp66"), "Sprinting", "Walking", SubResource("AnimationNodeStateMachineTransition_t84u8"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_2vald"), "Sprinting", "Jumping", SubResource("AnimationNodeStateMachineTransition_ehc6g"), "Sprinting", "Falling", SubResource("AnimationNodeStateMachineTransition_ehhna")]
-graph_offset = Vector2(-290, -8)
+graph_offset = Vector2(-396, -28)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_48y1t"]
-height = 1.86141
-
-[node name="Character" instance=ExtResource("1_0ilfd")]
-script = ExtResource("2_vyr0h")
+[node name="Armature" groups=["Enemies"] instance=ExtResource("1_27lcl")]
+script = ExtResource("2_o3e30")
 
 [node name="Armature2" parent="." index="0"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.916724, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.887054, 0)
 
 [node name="Skeleton3D" parent="Armature2" index="0"]
-bones/0/position = Vector3(-4.34341e-10, -0.0133684, -0.0166427)
+bones/0/position = Vector3(-4.31139e-10, -0.0132698, -0.0166427)
 bones/2/rotation = Quaternion(0.0425501, 0.00241668, 0.00339728, 0.999086)
-bones/3/rotation = Quaternion(0.0474804, 0.0114777, 0.00718322, 0.99878)
-bones/4/rotation = Quaternion(-0.0282434, 0.0090806, -0.715709, 0.697769)
-bones/5/rotation = Quaternion(-0.0543246, 0.110564, -0.574508, 0.809176)
-bones/6/rotation = Quaternion(0.290344, 0.0151096, -0.156792, 0.943869)
+bones/3/rotation = Quaternion(0.0474609, 0.011478, 0.00718289, 0.998781)
+bones/4/rotation = Quaternion(-0.0282822, 0.00922569, -0.715654, 0.697821)
+bones/5/rotation = Quaternion(-0.054384, 0.110504, -0.574189, 0.809406)
+bones/6/rotation = Quaternion(0.290353, 0.0151155, -0.156961, 0.943838)
 bones/7/rotation = Quaternion(-0.0566302, -0.00158694, -0.206691, 0.976765)
 bones/8/rotation = Quaternion(-0.0281204, -0.00862133, 0.71588, 0.697603)
-bones/9/rotation = Quaternion(-0.0870066, -0.0719257, 0.615495, 0.780015)
-bones/10/rotation = Quaternion(0.254852, -0.00648937, 0.0209226, 0.966732)
+bones/9/rotation = Quaternion(-0.0876517, -0.0715186, 0.615012, 0.78036)
+bones/10/rotation = Quaternion(0.254835, -0.00653756, 0.0216855, 0.966719)
 bones/11/rotation = Quaternion(-0.0550965, -0.0313194, 0.214792, 0.974601)
-bones/12/rotation = Quaternion(0.0250819, 0.138804, 0.986987, -0.0772095)
+bones/12/rotation = Quaternion(0.0250725, 0.138555, 0.98703, -0.07711)
 bones/12/scale = Vector3(0.999991, 1, 0.999984)
-bones/13/rotation = Quaternion(-0.174697, 0.025977, -0.0661558, 0.982054)
-bones/14/rotation = Quaternion(0.743811, -0.00474274, -0.00917067, 0.66831)
-bones/15/rotation = Quaternion(-0.0220091, 0.144253, 0.988944, 0.0263809)
+bones/13/rotation = Quaternion(-0.174287, 0.0259792, -0.0660003, 0.982137)
+bones/14/rotation = Quaternion(0.743669, -0.00481998, -0.00921375, 0.668468)
+bones/15/rotation = Quaternion(-0.0220061, 0.14399, 0.988982, 0.0264164)
 bones/15/scale = Vector3(0.999991, 1, 0.999984)
-bones/16/rotation = Quaternion(-0.184316, -0.0132224, -0.0299184, 0.982323)
-bones/17/rotation = Quaternion(0.746127, 0.026041, 0.0498132, 0.663427)
+bones/16/rotation = Quaternion(-0.183885, -0.0132235, -0.0298484, 0.982406)
+bones/17/rotation = Quaternion(0.745978, 0.0260381, 0.0497713, 0.663598)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
-tree_root = SubResource("AnimationNodeStateMachine_mntcc")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935655, 0)
+shape = SubResource("CapsuleShape3D_7fvn3")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_syaqx")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/conditions/falling = false
@@ -160,16 +163,4 @@ parameters/conditions/jumping = false
 parameters/conditions/sprinting = false
 parameters/conditions/walking = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935655, 0)
-shape = SubResource("CapsuleShape3D_48y1t")
-
-[node name="CameraHub" type="Node3D" parent="." index="4"]
-
-[node name="SpringArm" type="SpringArm3D" parent="CameraHub" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.985494, 0.169711, 0, -0.169711, 0.985494, 0, 1.5612, 0)
-spring_length = 2.0
-script = ExtResource("2_xxahi")
-
-[node name="Camera3D" type="Camera3D" parent="CameraHub/SpringArm" index="0"]
-current = true
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="4"]
