@@ -106,7 +106,6 @@ func _physics_process(delta):
 				horizontal_speed = 0
 
 		horizontal_velocity = movement_direction * horizontal_speed
-		print(horizontal_direction)
 		
 		if not jumping and jump_attempt:
 			vertical_velocity = JUMP_VELOCITY

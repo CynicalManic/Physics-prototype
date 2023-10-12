@@ -2,10 +2,19 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const WALKING_SPEED = 6.0
+const SPRINTING_SPEED = 10.0
+const ACCEL = 14.0
+const DEACCEL = 14.0
+const AIR_ACCEL_FACTOR = 0.5
+const JUMP_VELOCITY = 8.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var jumping := false
+var max_speed = WALKING_SPEED
+@onready var initial_position := position
+
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * \
+		ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
@@ -13,15 +22,73 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _physics_process(delta):		
 	var current_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
-	var new_velocity = (next_location - current_location).normalized() * SPEED
+	var movement_direction = (next_location - current_location).normalized()
+	movement_direction.y = 0
 	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	# Reset position if fell off map
+	if global_position.y < -12:
+		position = initial_position
+		velocity = Vector3.ZERO
 	
-	velocity = new_velocity
+	# Add gravity
+	velocity += gravity * delta
+		
+	var vertical_velocity := velocity.y
+	var horizontal_velocity := Vector3(velocity.x, 0, velocity.z)
+	#print("X: " , velocity.x , " Y: " , velocity.x , " Z: " , velocity.z)
+	
+	#var movement_vec2 := Input.get_vector("strafe_left", "strafe_right", "move_forward", "move_back")
+	#var movement_direction := transform.basis * Vector3(movement_vec2.x, 0, movement_vec2.y)
+	movement_direction = movement_direction.normalized()
+	
+	var horizontal_direction := (transform.basis * horizontal_velocity).normalized()
+	var horizontal_speed := horizontal_velocity.length()
+	
+	var jump_attempt := false
+	var sprinting := false
+	
+	if sprinting:
+		max_speed = SPRINTING_SPEED
+	else:
+		max_speed = WALKING_SPEED
+	
+	if is_on_floor():		
+		jumping = false
+		if movement_direction.length() > 0.1:
+			if horizontal_speed < max_speed:
+				horizontal_speed += ACCEL * delta
+			else:
+				horizontal_speed -= DEACCEL * delta			
+		else:
+			horizontal_speed -= DEACCEL * delta
+			movement_direction = horizontal_velocity.normalized()
+			if horizontal_speed < 0:
+				horizontal_speed = 0
+
+		horizontal_velocity = movement_direction * horizontal_speed
+		
+		if not jumping and jump_attempt:
+			vertical_velocity = JUMP_VELOCITY
+			jumping = true
+	else:
+		if movement_direction.length() > 0.1:
+			horizontal_velocity += movement_direction * (ACCEL * AIR_ACCEL_FACTOR * delta)
+			if horizontal_velocity.length() > max_speed:
+				horizontal_velocity = horizontal_velocity.normalized() * max_speed
+	
+	velocity = horizontal_velocity + Vector3.UP * vertical_velocity
+	
+	
 	move_and_slide()
+	if movement_direction != Vector3.ZERO:
+		look_at(transform.origin - movement_direction, Vector3.UP)
 	
+	"""	
+	for col_idx in get_slide_collision_count():
+		var col := get_slide_collision(col_idx)
+		if col.get_collider() is RigidBody3D:
+			col.get_collider().apply_impulse(-col.get_normal() * push_force * delta, col.get_position() - col.get_collider().global_position)
+	"""
 	AnimationHandler()
 
 func AnimationHandler():
@@ -32,7 +99,7 @@ func AnimationHandler():
 		animation_tree["parameters/conditions/sprinting"] = false
 	else:
 		animation_tree["parameters/conditions/idle"] = false
-		if (Input.is_action_pressed("Sprint")):
+		if max_speed == SPRINTING_SPEED:
 			animation_tree["parameters/conditions/sprinting"] = true
 			animation_tree["parameters/conditions/walking"] = false
 		else:			

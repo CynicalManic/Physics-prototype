@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://b62iylv4ervj3" path="res://Resources/3D Blender Assets/Finished/Pathfinding Character.tscn" id="13_b4fxg"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rj8g0"]
-vertices = PackedVector3Array(-23.5, 2.5, -13.5, -23.5, 1.5, 5.5, -10, 1.5, 5.5, -10, 1.5, -13.5, -12.7, 1.75, -13.5, -14.05, 2.5, -13.5, -23.5, 2.5, -4.73077, -23.5, 1.5, -1.80769, -17.9996, 2.5, -6.49045, -14.9893, 1.5, -2.00479, -14.9995, 2.25, -4.98058, -11.9794, 1.25, -5.00861, -13.4843, 2, -3.4817, -18.0195, 2.5, -5.00255, -13.5043, 1.5, -1.9938, 3.5, 1.5, -13.5, -10, 1.5, -13.5, -10, 1.5, 5.5, 3.5, 1.5, 5.5)
-polygons = [PackedInt32Array(2, 11, 3), PackedInt32Array(3, 11, 4), PackedInt32Array(4, 11, 5), PackedInt32Array(5, 8, 0), PackedInt32Array(0, 8, 6), PackedInt32Array(6, 13, 7), PackedInt32Array(7, 9, 1), PackedInt32Array(1, 9, 2), PackedInt32Array(2, 14, 11), PackedInt32Array(11, 10, 5), PackedInt32Array(5, 10, 8), PackedInt32Array(8, 13, 6), PackedInt32Array(13, 9, 7), PackedInt32Array(9, 14, 2), PackedInt32Array(14, 12, 11), PackedInt32Array(11, 12, 10), PackedInt32Array(10, 13, 8), PackedInt32Array(13, 10, 9), PackedInt32Array(9, 12, 14), PackedInt32Array(12, 9, 10), PackedInt32Array(18, 17, 15), PackedInt32Array(15, 17, 16)]
+vertices = PackedVector3Array(-10, 1.5, 5.5, -10, 1.5, 4.25, -12, 1.5, 3.75, -23.5, 1.5, 5.5, -12, 1.5, 3.75, -12.75, 1.5, 2.5, -14.5, 1.5, 1.5, -23.5, 1.5, 5.5, -23.5, 1.5, 5.5, -14.25, 1.5, 0, -13.5, 1.5, -1.25, -12.75, 1.75, -13.5, -23.5, 2.5, -13.5, -23.5, 2.5, -4.73077, -23.5, 1.5, -1.80769, -13.3333, 2, -3.97222, -14.0938, 2.5, -13.5, -16.4846, 2.5, -5.00144, -14.9794, 1.5, -2.00861, -13.5, 1.5, -1.25, -12.75, 1.5, -1.5, -12.75, 1.75, -13.5, -13.3333, 2, -3.97222, -23.5, 1.5, 5.5, -14.5, 1.5, 1.5, -14.25, 1.5, 0, -9.5, 1.5, 4.25, -10, 1.5, 4.25, -10, 1.5, 5.5, -9.75, 1.5, -0.25, -9.5, 1.5, 0.5, -8.25, 1.5, 1.25, 3.5, 1.5, 5.5, 3.5, 1.5, -13.5, -12.75, 1.75, -13.5, -10.95, 1.25, -5.55, -8.98447, 1.25, -4.99157, -8.5, 1.5, 2.75, -9.5, 1.5, 4.25, -10, 1.5, 5.5, 3.5, 1.5, 5.5, -12.75, 1.5, -1.5, -10.75, 1.5, -0.25, -9.75, 1.5, -0.25, -12.75, 1.75, -13.5, -10.95, 1.25, -5.55, -8.25, 1.5, 1.25, -8.5, 1.5, 2.75, 3.5, 1.5, 5.5, -10.75, 2.75, 2.25, -10.75, 2.75, 2.75, -10, 2.75, 3, -9.5, 2.75, 2, -10.25, 2.75, 1.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(16, 17, 12), PackedInt32Array(12, 17, 13), PackedInt32Array(13, 17, 14), PackedInt32Array(14, 9, 8), PackedInt32Array(9, 18, 10), PackedInt32Array(10, 18, 15), PackedInt32Array(15, 16, 11), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 18, 14), PackedInt32Array(14, 18, 9), PackedInt32Array(18, 17, 15), PackedInt32Array(19, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(25, 24, 23), PackedInt32Array(28, 27, 26), PackedInt32Array(33, 36, 34), PackedInt32Array(34, 36, 35), PackedInt32Array(35, 36, 29), PackedInt32Array(29, 31, 30), PackedInt32Array(31, 36, 32), PackedInt32Array(32, 36, 33), PackedInt32Array(36, 31, 29), PackedInt32Array(38, 37, 39), PackedInt32Array(39, 37, 40), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 45), PackedInt32Array(45, 41, 44), PackedInt32Array(48, 47, 46), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(52, 49, 53)]
 edge_max_length = 20.0
 
 [node name="Node3D" type="Node3D"]
@@ -33,9 +33,6 @@ environment = ExtResource("11_ns0oo")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node"]
 transform = Transform3D(-0.885994, -0.106284, 0.451351, 0.143419, 0.862837, 0.484709, -0.440959, 0.494182, -0.749226, -1, 10.5, 0)
 shadow_enabled = true
-
-[node name="Cylinder_002" parent="." instance=ExtResource("12_6lrwi")]
-transform = Transform3D(0.209648, 0, 0.340658, 0, 0.4, 0, -0.340658, 0, 0.209648, -11.9646, 1, 1.02182)
 
 [node name="Character" parent="." instance=ExtResource("12_g7752")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, 0)
@@ -276,8 +273,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 5)
 [node name="Plain_Grass_Cube27" parent="NavigationRegion3D/Node3D" instance=ExtResource("7_34j5y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 5)
 
+[node name="Cylinder_002" parent="NavigationRegion3D" instance=ExtResource("12_6lrwi")]
+transform = Transform3D(0.209648, 0, 0.340658, 0, 0.4, 0, -0.340658, 0, 0.209648, -11.9646, 1, 1.02182)
+
 [node name="NPCs" type="Node3D" parent="."]
 script = ExtResource("13_5bvop")
 
 [node name="Armature" parent="NPCs" instance=ExtResource("13_b4fxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -7.5)
+
+[node name="Skeleton3D" parent="NPCs/Armature/Armature2" index="0"]
+bones/0/position = Vector3(3.58592e-10, -0.0026494, -0.0166427)
+bones/3/rotation = Quaternion(0.043099, 0.0115369, 0.007109, 0.998979)
+bones/4/rotation = Quaternion(-0.0342639, 0.0316134, -0.707029, 0.705646)
+bones/5/rotation = Quaternion(-0.0634163, 0.101111, -0.524181, 0.843202)
+bones/6/rotation = Quaternion(0.29153, 0.0159517, -0.181254, 0.939097)
+bones/9/rotation = Quaternion(-0.181362, -0.0110873, 0.537959, 0.823156)
+bones/10/rotation = Quaternion(0.250656, -0.0135582, 0.133332, 0.958755)
+bones/12/rotation = Quaternion(0.0240978, 0.0972611, 0.993102, -0.0608925)
+bones/13/rotation = Quaternion(-0.0977096, 0.0262977, -0.0370015, 0.994179)
+bones/14/rotation = Quaternion(0.71957, -0.0171159, -0.0168117, 0.694005)
+bones/15/rotation = Quaternion(-0.022095, 0.10025, 0.994184, 0.0325488)
+bones/16/rotation = Quaternion(-0.103135, -0.0133854, -0.0167409, 0.994436)
+bones/17/rotation = Quaternion(0.720684, 0.0250445, 0.0432674, 0.691459)
+
+[editable path="NPCs/Armature"]
