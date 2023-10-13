@@ -67,9 +67,9 @@ vertical_alignment = 1
 [node name="CtrButtons" type="Control" parent="CRect Background"]
 z_index = 2
 layout_mode = 1
-anchor_left = 0.3
+anchor_left = 0.25
 anchor_top = 0.3
-anchor_right = 0.7
+anchor_right = 0.75
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
@@ -79,16 +79,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -73.0
+offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 70
 
-[node name="HBoxPlay" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+[node name="HBoxLevel1" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="BtnPlayGame" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxPlay"]
+[node name="BtnLevel1" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxLevel1"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
@@ -97,12 +99,12 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_xpsp6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4y8sc")
 text = "First Level"
 
-[node name="HBoxCredits" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+[node name="HBoxLevel2" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="BtnCredits" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxCredits"]
+[node name="BtnLevel2" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxLevel2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
@@ -110,6 +112,21 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_eueli")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xpsp6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4y8sc")
 text = "3D All Assets"
+
+[node name="HBoxLevel3" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="BtnLevel3" type="Button" parent="CRect Background/CtrButtons/VBoxMenuButtons/HBoxLevel3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_eueli")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xpsp6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4y8sc")
+text = "3rd Person Camera
+"
 
 [node name="HBoxExit" type="HBoxContainer" parent="CRect Background/CtrButtons/VBoxMenuButtons"]
 layout_mode = 2
@@ -125,6 +142,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_xpsp6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4y8sc")
 text = "Back"
 
-[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxPlay/BtnPlayGame" to="." method="_on_btn_play_game_pressed"]
-[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxCredits/BtnCredits" to="." method="_on_btn_credits_pressed"]
+[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxLevel1/BtnLevel1" to="." method="_on_btn_level_1_pressed"]
+[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxLevel2/BtnLevel2" to="." method="_on_btn_level_2_pressed"]
+[connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxLevel3/BtnLevel3" to="." method="_on_btn_level_3_pressed"]
 [connection signal="pressed" from="CRect Background/CtrButtons/VBoxMenuButtons/HBoxExit/BtnExit" to="." method="_on_btn_exit_pressed"]

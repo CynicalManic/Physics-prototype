@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://j13wusd1ddcw"]
+
+[ext_resource type="Script" path="res://Scripts/Camera/Top_Down_Cam.gd" id="1_b6m0s"]
+
+[node name="camera_rig" type="Node3D"]
+script = ExtResource("1_b6m0s")
+
+[node name="Camera3D" type="Camera3D" parent="."]
